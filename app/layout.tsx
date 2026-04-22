@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/styles/globals.css";
+
+import MainHeader from "@/shared/MainHeader/MainHeader";
+
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const font = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TaskFlow",
-  description: "TaskFlow application",
+  title: "Aurora Todo",
+  description: "Aurora Todo application",
 };
 
 export default function RootLayout({
@@ -13,7 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={font.className}>
+        <MainHeader/>
+        {children}
+      </body>
     </html>
   );
 }
